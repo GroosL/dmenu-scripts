@@ -1,0 +1,9 @@
+#!/bin/env bash
+
+currency="usd"
+
+choice=$(a | dmenu -i -p "Type the coin you want to fetch the price of:")
+
+price=$(curl -s "$currency.rate.sx/1$choice")
+
+notify-send "$choice" "$(printf "%0.0f" $price) $currency"
